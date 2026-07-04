@@ -1,11 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "io.github.lamlieu.untrackme"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "io.github.lamlieu.untrackme"
@@ -52,4 +54,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // For Hilt
+    implementation("com.google.dagger:hilt-android:2.60")
+    ksp("com.google.dagger:hilt-android-compiler:2.60")
+
+    // For Compose ViewModels
+    implementation("androidx.hilt:hilt-lifecycle-viewmodel-compose:1.4.0")
 }
