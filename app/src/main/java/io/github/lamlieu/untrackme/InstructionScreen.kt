@@ -43,6 +43,7 @@ private fun InstructionCard(config: InstructionCardConfig, modifier: Modifier = 
     horizontalAlignment = Alignment.CenterHorizontally
   ) {
     Text(stringResource(config.instructionRes))
+    Spacer(modifier = Modifier.height(8.dp))
     Image(
       modifier = Modifier
         .widthIn(max = 300.dp)
