@@ -39,20 +39,20 @@ class MainActivity : ComponentActivity() {
       if (isTextShareIntent) {
         SharesheetHandler(viewModel = viewModel, onComplete = { finish() })
       } else {
-        Overview()
+        Instructions()
       }
     }
   }
 
   @Composable
-  fun Overview() {
+  fun Instructions() {
     UntrackMeTheme {
       Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
         CenterAlignedTopAppBar(title = {
           Text(text = stringResource(R.string.app_name))
         })
       }) { innerPadding ->
-        OverviewScreen(
+        InstructionScreen(
           modifier = Modifier
             .fillMaxSize()
             .padding(innerPadding)

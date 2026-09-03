@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Untrack Me</string>
+    <string name="instruction_step_1">Step 1: Tap on the \"Share\" button</string>
+    <string name="instruction_step_1_description">Image of a YouTube video. A circle drawn to indicate the location of the share button.</string>
+    <string name="instruction_step_2">Step 2: Share the link with this app</string>
+    <string name="instruction_step_2_description">Image of the Sharing link bottom sheet. A circle is drawn to indicate the location of the app within the bottom sheet.</string>
+    <string name="instruction_step_3">Step 3: Finished! The new link is copied</string>
+    <string name="instruction_step_3_description">Image of the Android Clipboard with the new link copied.</string>
 </resources>
