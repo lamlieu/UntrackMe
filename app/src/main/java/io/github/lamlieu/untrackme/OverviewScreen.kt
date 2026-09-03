@@ -37,7 +37,9 @@ fun OverviewScreen(modifier: Modifier = Modifier) {
       },
       modifier = Modifier.padding(8.dp)
     ) { Text(text = buttonState.text) }
-    Spacer(modifier = Modifier.fillMaxWidth().padding(80.dp))
+    Spacer(modifier = Modifier
+      .fillMaxWidth()
+      .padding(80.dp))
   }
 }
 
