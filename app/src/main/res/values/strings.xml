@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Untrack Me</string>
+    <string name="main_activity_top_app_bar_title">Untrack Me</string>
     <string name="instruction_step_1">Step 1: Tap on the \"Share\" button</string>
     <string name="instruction_step_1_description">Image of a YouTube video. A circle drawn to indicate the location of the share button.</string>
     <string name="instruction_step_2">Step 2: Share the link with this app</string>
