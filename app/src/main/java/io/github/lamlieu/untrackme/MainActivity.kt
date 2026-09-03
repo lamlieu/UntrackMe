@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
     UntrackMeTheme {
       Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
         CenterAlignedTopAppBar(title = {
-          Text(text = stringResource(R.string.app_name))
+          Text(text = stringResource(R.string.main_activity_top_app_bar_title))
         })
       }) { innerPadding ->
         InstructionScreen(
