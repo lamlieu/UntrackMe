@@ -3,14 +3,17 @@ package io.github.lamlieu.untrackme
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -39,10 +42,18 @@ fun InstructionScreen(modifier: Modifier = Modifier) {
 @Composable
 private fun InstructionCard(config: InstructionCardConfig, modifier: Modifier = Modifier) {
   Column(
-    modifier = modifier,
+    modifier = modifier
+      .background(
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        shape = RoundedCornerShape(15.dp)
+      )
+      .padding(horizontal = 16.dp, vertical = 16.dp),
     horizontalAlignment = Alignment.CenterHorizontally
   ) {
-    Text(stringResource(config.instructionRes))
+    Text(
+      text = stringResource(config.instructionRes),
+      color = MaterialTheme.colorScheme.onSecondaryContainer
+    )
     Spacer(modifier = Modifier.height(8.dp))
     Image(
       modifier = Modifier
@@ -75,7 +86,6 @@ private enum class InstructionCardConfig(
     R.string.instruction_step_3_description
   )
 }
-
 
 @Preview(showBackground = true, device = "id:pixel_7_pro")
 @Composable
