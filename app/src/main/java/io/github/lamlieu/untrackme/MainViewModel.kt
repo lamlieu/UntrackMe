@@ -42,7 +42,7 @@ class MainViewModel @Inject constructor() : ViewModel() {
     private val trackingParams: Set<String> = setOf(
       // Instagram
       "igsi",
-      "sktn",
+      "stkn",
       // YouTube
       "si",
     )
