@@ -15,8 +15,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,30 +40,38 @@ class MainActivity : ComponentActivity() {
     }
 
     setContent {
-      if (isTextShareIntent) {
-        SharesheetHandler(viewModel = viewModel, onComplete = { finish() })
-      } else {
-        Instructions()
+      UntrackMeTheme {
+        Surface(tonalElevation = 5.dp) {
+          if (isTextShareIntent) {
+            SharesheetHandler(viewModel = viewModel, onComplete = { finish() })
+          } else {
+            Instructions()
+          }
+        }
       }
     }
   }
 
   @Composable
   fun Instructions() {
-    UntrackMeTheme {
-      Surface(tonalElevation = 5.dp) {
-        Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
-          CenterAlignedTopAppBar(title = {
+    Scaffold(
+      modifier = Modifier.fillMaxSize(),
+      topBar = {
+        CenterAlignedTopAppBar(
+          title = {
             Text(text = stringResource(R.string.main_activity_top_app_bar_title))
-          })
-        }) { innerPadding ->
-          InstructionScreen(
-            modifier = Modifier
-              .fillMaxSize()
-              .padding(innerPadding)
+          },
+          colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color.Transparent
           )
-        }
+        )
       }
+    ) { innerPadding ->
+      InstructionScreen(
+        modifier = Modifier
+          .fillMaxSize()
+          .padding(innerPadding)
+      )
     }
   }
 }
