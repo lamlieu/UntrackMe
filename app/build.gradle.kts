@@ -51,7 +51,10 @@ dependencies {
   implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.ui.tooling.preview)
   implementation(libs.androidx.material3)
+  implementation(libs.androidx.compose.material.icons.core)
+  implementation(libs.androidx.datastore.preferences)
   testImplementation(libs.junit)
+  testImplementation(libs.robolectric)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
   androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -62,6 +65,7 @@ dependencies {
   // For Hilt
   implementation("com.google.dagger:hilt-android:2.60")
   ksp("com.google.dagger:hilt-android-compiler:2.60")
+  testImplementation(libs.hilt.android.testing)
 
   // For Compose ViewModels
   implementation("androidx.hilt:hilt-lifecycle-viewmodel-compose:1.4.0")
