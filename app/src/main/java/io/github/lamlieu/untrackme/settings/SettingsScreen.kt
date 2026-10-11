@@ -13,16 +13,18 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun SettingsScreen(modifier: Modifier = Modifier) {
-  var isEnabled by rememberSaveable { mutableStateOf(true) }
+fun SettingsScreen(
+  modifier: Modifier = Modifier,
+  viewModel: SettingsViewModel = viewModel()
+) {
+  val useOgInstagram by viewModel.useOgInstagram.collectAsStateWithLifecycle()
 
   Column(
     modifier = modifier.fillMaxSize(),
@@ -32,8 +34,8 @@ fun SettingsScreen(modifier: Modifier = Modifier) {
     Setting(
       title = "Use \"d.oginstagram\" for Instagram links",
       subtitle = "This setting makes Instagram content embeddable in Discord.",
-      checked = isEnabled,
-      onCheckedChange = { isEnabled = it }
+      checked = useOgInstagram,
+      onCheckedChange = viewModel::setUseOgInstagram
     )
   }
 }
