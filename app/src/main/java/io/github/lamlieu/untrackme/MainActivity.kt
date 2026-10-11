@@ -71,14 +71,20 @@ class MainActivity : ComponentActivity() {
       topBar = {
         CenterAlignedTopAppBar(
           title = {
-            Text(text = if (showSettings) "Settings" else stringResource(R.string.main_activity_top_app_bar_title))
+            Text(
+              text = if (showSettings) {
+                stringResource(R.string.settings_title)
+              } else {
+                stringResource(R.string.main_activity_top_app_bar_title)
+              }
+            )
           },
           navigationIcon = {
             if (showSettings) {
               IconButton(onClick = { showSettings = false }) {
                 Icon(
                   imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                  contentDescription = "Back"
+                  contentDescription = stringResource(R.string.back_content_description)
                 )
               }
             }
@@ -88,7 +94,7 @@ class MainActivity : ComponentActivity() {
               IconButton(onClick = { showSettings = true }) {
                 Icon(
                   imageVector = Icons.Default.Settings,
-                  contentDescription = "Settings"
+                  contentDescription = stringResource(R.string.settings_content_description)
                 )
               }
             }
